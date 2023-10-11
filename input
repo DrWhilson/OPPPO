@@ -1,5 +1,6 @@
 ADD Sphere Sp 1.0 1
-ADD Sphere Sph 1.0 1
+ADD Sphere sHp 1.2 3
+ADD Sphere Sph 1.2 5
 PRINT
 REM name = Sp
 PRINT

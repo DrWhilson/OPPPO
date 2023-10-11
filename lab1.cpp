@@ -1,3 +1,4 @@
+#include <cctype>
 #include <fstream>
 #include <functional>
 #include <iostream>
@@ -19,6 +20,8 @@ bool isContainNum(char *str) {
   }
   return false;
 }
+
+bool checkName(char *str) { return !isContainNum(str) && isupper(str[0]); }
 
 class Point3D {
 public:
@@ -56,8 +59,7 @@ public:
       return false;
     // std::vector<int> numbers{0, 1, 2, 3, 4, 5, 6, 7, 8};
 
-    if ((sscanf(comm, "%s %f %d", name, &P, &R) == 3) && isupper(name[0]) &&
-        !isContainNum(name)) {
+    if ((sscanf(comm, "%s %f %d", name, &P, &R) == 3) && checkName(name)) {
       return true;
     } else {
       logs << "[WRN] Wrong parameters" << endl;
@@ -84,7 +86,7 @@ public:
       return false;
 
     if ((sscanf(comm, "%s %f %d %d %d", name, &P, &a, &b, &c) == 5) &&
-        isupper(name[0]) && !isContainNum(name)) {
+        checkName(name)) {
       return true;
     } else {
       logs << "[WRN] Wrong parameters" << endl;
@@ -114,7 +116,7 @@ public:
 
     if ((sscanf(comm, "%s %f %d %d %d %f %f", name, &P, &center.x, &center.y,
                 &center.z, &R, &H) == 7) &&
-        isupper(name[0]) && !isContainNum(name)) {
+        checkName(name)) {
       return true;
     } else {
       logs << "[WRN] Wrong parameters" << endl;
