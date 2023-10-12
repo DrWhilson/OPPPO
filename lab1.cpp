@@ -301,10 +301,12 @@ int main() {
         obj = new Parallelepiped();
       } else if (string(comm) == "Cylinder") {
         obj = new Cylinder();
-      } else
+      } else {
+        obj = nullptr;
         logs << "[WRN] " << string(comm) << " is not a figure type" << endl;
+      }
 
-      if (obj->setFig(param) == true) {
+      if ((obj != nullptr) && (obj->setFig(param) == true)) {
         lst.push_back(obj);
         logs << "[INF] Figure created" << endl;
       } else {
