@@ -193,23 +193,23 @@ struct List {
     last = p;
   }
 
-  void remove(Fig *serfig) {
+  void remove(Node *sernode) {
     if (is_empty())
       return;
-    if (serfig == nullptr)
+    if (sernode == nullptr)
       return;
 
-    if (first->fig == serfig) {
+    if (first == sernode) {
       remove_first();
       return;
-    } else if (last->fig == serfig) {
+    } else if (last == sernode) {
       remove_last();
       return;
     }
 
     Node *slow = first;
     Node *fast = first->next;
-    while (fast && fast->fig != serfig) {
+    while (fast && fast != sernode) {
       fast = fast->next;
       slow = slow->next;
     }
@@ -229,7 +229,7 @@ struct List {
       this->remove_first();
   }
 
-  Fig *searchFirst(char *comm) {
+  Node *searchFirst(char *comm) {
     if (is_empty())
       return nullptr;
 
@@ -271,7 +271,7 @@ struct List {
     while (serNode) {
       if (pars[par](serNode->fig, oper, inp)) {
         logs << "[INF] Find fig" << endl;
-        return serNode->fig;
+        return serNode;
       }
       serNode = serNode->next;
     }
