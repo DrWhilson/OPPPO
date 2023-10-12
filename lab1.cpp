@@ -207,19 +207,17 @@ struct List {
       return;
     }
 
-    Node *slow = first;
-    Node *fast = first->next;
-    while (fast && fast != sernode) {
-      fast = fast->next;
-      slow = slow->next;
+    Node *searNode = first->next;
+    while (searNode && searNode != sernode) {
+      searNode = searNode->next;
     }
-    if (!fast) {
+    if (!searNode) {
       logs << "[INF] This element does not exist" << endl;
       return;
     }
-    slow->next = fast->next;
-    fast->next->prev = slow;
-    delete fast;
+    searNode->prev->next = searNode->next;
+    searNode->next->prev = searNode->prev;
+    delete searNode;
   }
 
   void freeList() {
