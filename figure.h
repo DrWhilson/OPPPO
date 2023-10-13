@@ -1,5 +1,5 @@
-#include <fstream>
-#include <iostream>
+// #include <fstream>
+#include <cstdio>
 #include <regex>
 #include <stdio.h>
 #include <string>
@@ -25,7 +25,7 @@ class Fig {
 public:
   char name[50];
   float Density;
-  virtual void print(std::ostream &ofile) const = 0;
+  virtual void print(FILE *ofile) const = 0;
   virtual int calcCap() const = 0;
   virtual bool setFig(char *comm) = 0;
 
@@ -37,7 +37,7 @@ public:
 class Sphere : public Fig {
 public:
   int Radius;
-  void print(std::ostream &ofile) const override;
+  void print(FILE *ofile) const override;
 
   int calcCap() const override;
 
@@ -49,7 +49,7 @@ public:
 class Parallelepiped : public Fig {
 public:
   int edgeA, edgeB, edgeC;
-  void print(std::ostream &ofile) const override;
+  void print(FILE *ofile) const override;
 
   int calcCap() const override;
 
@@ -62,7 +62,7 @@ class Cylinder : public Fig {
 public:
   Point3D center;
   float Radius, Hight;
-  void print(std::ostream &ofile) const override;
+  void print(FILE *ofile) const override;
 
   int calcCap() const override;
   bool setFig(char *comm) override;

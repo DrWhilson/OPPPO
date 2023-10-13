@@ -1,6 +1,6 @@
 #include "figure.cpp"
 #include <cctype>
-#include <fstream>
+// #include <fstream>
 #include <functional>
 #include <iostream>
 #include <map>
@@ -24,7 +24,7 @@ struct List {
   bool is_empty();
   void push_back(Fig *newfig);
 
-  void print(ostream &ofile);
+  void print(FILE *ofile);
 
   void remove_first();
   void remove_last();

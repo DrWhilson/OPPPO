@@ -1,7 +1,7 @@
 #include <cctype>
+#include <cstdio>
 #include <fstream>
 #include <functional>
-#include <iostream>
 #include <map>
 #include <regex>
 #include <stdio.h>
@@ -11,7 +11,7 @@ using namespace std;
 
 #include "my_list.cpp"
 
-ofstream logs;
+FILE *logs;
 
 void addCom(List *lst, char *comm, char *param) {
   Fig *obj;
@@ -23,24 +23,25 @@ void addCom(List *lst, char *comm, char *param) {
     obj = new Cylinder();
   } else {
     obj = nullptr;
-    logs << "[WRN] " << string(comm) << " is not a figure type" << endl;
+    fprintf(logs, "[WRN] %s is not a figure type!\n", comm);
   }
 
   if ((obj != nullptr) && (obj->setFig(param) == true)) {
     lst->push_back(obj);
-    logs << "[INF] Figure created" << endl;
+    fprintf(logs, "[INF] Figure created!\n");
+
   } else {
     delete obj;
-    logs << "[WRN] Can`t create a figure" << endl;
+    fprintf(logs, "[WRN] Can`t create a figure!\n");
   }
 }
 
 void remCom(List *lst, char *comm) { lst->remove(lst->searchFirst(comm)); }
-void printCom(List *lst) { lst->print(cout); }
+void printCom(List *lst) { lst->print(stdout); }
 
 int main() {
   FILE *newfile = fopen("input", "r");
-  logs.open("output");
+  logs = fopen("output", "w");
 
   List lst;
 
@@ -58,15 +59,15 @@ int main() {
     } else if (string(param) == "PRINT") {
       printCom(&lst);
     } else {
-      logs << "[WRN] " << string(param) << " is not a command!" << endl;
+      fprintf(logs, "[WRN] %s is not a command!\n", param);
     }
   }
 
-  logs << "[INF] Program finished!" << endl;
+  fprintf(logs, "[INF] Programm finished!\n");
 
   lst.freeList();
   fclose(newfile);
-  logs.close();
+  fclose(logs);
 
   return 0;
 }

@@ -1,4 +1,5 @@
 #include "my_list.h"
+#include <cstdio>
 
 using namespace std;
 
@@ -16,12 +17,13 @@ void List::push_back(Fig *newfig) {
   last = newNode;
 }
 
-void List::print(ostream &ofile) {
+void List::print(FILE *ofile) {
   if (is_empty())
     return;
 
   Node *searNode = first;
-  ofile << "!----PRINT----!" << endl;
+  std::fprintf(ofile, "!----PRINT----!\n");
+  // ofile << "!----PRINT----!" << endl;
   while (searNode) {
     searNode->fig->print(ofile);
     searNode = searNode->next;
