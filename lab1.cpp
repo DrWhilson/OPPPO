@@ -23,6 +23,10 @@ bool isContainNum(char *str) {
 
 bool checkName(char *str) { return !isContainNum(str) && isupper(str[0]); }
 
+bool isPositive(int num) { return num >= 0; }
+
+bool isPositive(float num) { return num >= 0; }
+
 class Point3D {
 public:
   int x, y, z;
@@ -59,7 +63,7 @@ public:
       return false;
 
     if ((sscanf(comm, "%s %f %d", name, &Density, &Radius) == 3) &&
-        checkName(name)) {
+        checkName(name) && isPositive(Density) && isPositive(Radius)) {
       return true;
     } else {
       logs << "[WRN] Wrong parameters" << endl;
@@ -87,7 +91,8 @@ public:
 
     if ((sscanf(comm, "%s %f %d %d %d", name, &Density, &edgeA, &edgeB,
                 &edgeC) == 5) &&
-        checkName(name)) {
+        checkName(name) && isPositive(Density) && isPositive(edgeA) &&
+        isPositive(edgeB) && isPositive(edgeC)) {
       return true;
     } else {
       logs << "[WRN] Wrong parameters" << endl;
@@ -117,7 +122,8 @@ public:
 
     if ((sscanf(comm, "%s %f %d %d %d %f %f", name, &Density, &center.x,
                 &center.y, &center.z, &Radius, &Hight) == 7) &&
-        checkName(name)) {
+        checkName(name) && isPositive(Density) && isPositive(Radius) &&
+        isPositive(Hight)) {
       return true;
     } else {
       logs << "[WRN] Wrong parameters" << endl;
