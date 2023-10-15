@@ -36,7 +36,7 @@ void addCom(List *lst, char *comm, char *param) {
   }
 }
 
-void remCom(List *lst, char *comm) { lst->remove(lst->searchFirst(comm)); }
+void remCom(List *lst, char *comm) { lst->remove_all_by_condition(comm); }
 void printCom(List *lst) { lst->print(stdout); }
 
 int main() {

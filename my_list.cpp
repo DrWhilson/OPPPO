@@ -57,18 +57,18 @@ void List::remove_last() {
   last = searNode;
 }
 
-void List::remove(Node *remNode) {
+bool List::remove_node(Node *remNode) {
   if (is_empty())
-    return;
+    return false;
   if (remNode == nullptr)
-    return;
+    return false;
 
   if (first == remNode) {
     remove_first();
-    return;
+    return true;
   } else if (last == remNode) {
     remove_last();
-    return;
+    return true;
   }
 
   Node *searNode = first->next;
@@ -76,11 +76,12 @@ void List::remove(Node *remNode) {
     searNode = searNode->next;
   }
   if (!searNode) {
-    return;
+    return false;
   }
   searNode->prev->next = searNode->next;
   searNode->next->prev = searNode->prev;
   delete searNode;
+  return true;
 }
 
 void List::freeList() {
@@ -90,18 +91,18 @@ void List::freeList() {
     this->remove_first();
 }
 
-Node *List::searchFirst(char *comm) {
+bool List::checkCondition(Node *checkNode, char *comm) {
   if (is_empty())
-    return nullptr;
+    return false;
 
   char par[50];
   char oper[50];
   char inp[50];
   char check[50];
   if (sscanf(comm, "%*s %*s %*s%150[^\n\r]", check) == 1)
-    return nullptr;
+    return false;
   if (sscanf(comm, "%s %s %s", par, oper, inp) != 3)
-    return nullptr;
+    return false;
 
   map<string, function<bool(Fig *, string, string)>> pars = {
       {"name",
@@ -125,12 +126,17 @@ Node *List::searchFirst(char *comm) {
            return false;
        }}};
 
-  Node *serNode = first;
+  if (pars[par](checkNode->fig, oper, inp)) {
+    return true;
+  }
+  return false;
+}
+
+void List::remove_all_by_condition(char *comm) {
+  Node *serNode = this->first;
   while (serNode) {
-    if (pars[par](serNode->fig, oper, inp)) {
-      return serNode;
+    if (this->checkCondition(serNode, comm)) {
     }
     serNode = serNode->next;
   }
-  return nullptr;
 }

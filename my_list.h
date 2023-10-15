@@ -28,8 +28,9 @@ struct List {
 
   void remove_first();
   void remove_last();
-  void remove(Node *remNode);
+  bool remove_node(Node *remNode);
   void freeList();
 
-  Node *searchFirst(char *comm);
+  bool checkCondition(Node *checkNode, char *comm);
+  void remove_all_by_condition(char *comm);
 };
