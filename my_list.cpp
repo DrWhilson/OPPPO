@@ -22,8 +22,7 @@ void List::print(FILE *ofile) {
     return;
 
   Node *searNode = first;
-  std::fprintf(ofile, "!----PRINT----!\n");
-  // ofile << "!----PRINT----!" << endl;
+  std::fprintf(ofile, "!--------PRINT--------!\n");
   while (searNode) {
     searNode->fig->print(ofile);
     searNode = searNode->next;
@@ -136,7 +135,18 @@ void List::remove_all_by_condition(char *comm) {
   Node *serNode = this->first;
   while (serNode) {
     if (this->checkCondition(serNode, comm)) {
+      if (serNode == this->first) {
+        remove_node(serNode);
+        serNode = this->first;
+      } else if (serNode == this->last) {
+        remove_node(serNode);
+        serNode = nullptr;
+      } else {
+        serNode = serNode->next;
+        remove_node(serNode->prev);
+      }
+    } else {
+      serNode = serNode->next;
     }
-    serNode = serNode->next;
   }
 }
