@@ -1,10 +1,4 @@
-#include <cctype>
 #include <cstdio>
-#include <fstream>
-#include <functional>
-#include <map>
-#include <regex>
-#include <stdio.h>
 #include <string>
 
 using namespace std;

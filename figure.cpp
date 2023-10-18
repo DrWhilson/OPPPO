@@ -1,5 +1,4 @@
 #include "figure.h"
-#include <cstdio>
 
 using namespace std;
 
@@ -20,8 +19,6 @@ bool isPositive(float num) { return num >= 0; }
 void Sphere::print(FILE *ofile) const {
   std::fprintf(ofile, "!--Sphere--!\nName %s\nDensity %f\nRadius %d\n", name,
                Density, Radius);
-  //   ofile << "!--Shpere--!\nName: " << name << "\nP: " << Density
-  //         << "\nR: " << Radius << endl;
 }
 
 int Sphere::calcCap() const { return ((4.0 / 3.0) * Pi * Radius * Radius); }
@@ -43,8 +40,6 @@ void Parallelepiped::print(FILE *ofile) const {
   std::fprintf(ofile,
                "!--Parallelepiped--!\nName %s\nDensity %f\nRibs %d %d %d\n",
                name, Density, edgeA, edgeB, edgeC);
-  // ofile << "!--Parallelepiped--!\nName: " << name << "\nP: " << Density
-  //       << "\nRibs: " << edgeA << " " << edgeB << " " << edgeC << endl;
 }
 
 int Parallelepiped::calcCap() const { return edgeA * edgeB * edgeC; }
@@ -69,10 +64,6 @@ void Cylinder::print(FILE *ofile) const {
                "!--Cylinder--!\nName %s\nDensity %f\nCoordinates %d %d "
                "%d\nRadius %f\nHeight %f\n",
                name, Density, center.x, center.y, center.z, Radius, Hight);
-  // ofile << "!--Cylinder--!\nName: " << name << "\nP: " << Density
-  //       << "\nCoordinates: " << center.x << " " << center.y << " " <<
-  //       center.z
-  //       << "\nR: " << Radius << "\nH: " << Hight << endl;
 }
 
 int Cylinder::calcCap() const { return Pi * Radius * Radius * Hight; }
