@@ -1,13 +1,54 @@
 #include <cstdio>
 #include <string>
 
-using namespace std;
+#include <list>
 
-#include "my_list.cpp"
+#include "figure.cpp"
 
 FILE *logs;
 
-void addCom(List *lst, char *comm, char *param) {
+bool checkCondition(Fig *fig, char *comm) {
+  if (fig == nullptr)
+    return false;
+
+  char par[50];
+  char oper[50];
+  char inp[50];
+  char check[50];
+  if (sscanf(comm, "%*s %*s %*s%150[^\n\r]", check) == 1)
+    return false;
+  if (sscanf(comm, "%s %s %s", par, oper, inp) != 3)
+    return false;
+
+  map<string, function<bool(Fig *, string, string)>> pars = {
+      {"name",
+       [](Fig *f, string oper, string inp) {
+         if (oper == "=") {
+           return f->name == inp;
+         } else
+
+           return false;
+       }},
+      {"capacity", [](Fig *f, string oper, string inp) {
+         double cap = f->calcCap();
+         int serCap = atoi(inp.c_str());
+         if (oper == "=") {
+           return cap == serCap;
+         } else if (oper == "<") {
+           return cap < serCap;
+         } else if (oper == ">") {
+           return cap > serCap;
+         } else
+           return false;
+       }}};
+
+  if (pars[par](fig, oper, inp)) {
+    return true;
+  }
+  return false;
+}
+
+void addCom(std::list<Fig *> *lst, char *comm, char *param) {
   Fig *obj;
   if (string(comm) == "Sphere") {
     obj = new Sphere();
@@ -23,21 +64,39 @@ void addCom(List *lst, char *comm, char *param) {
   if ((obj != nullptr) && (obj->setFig(param) == true)) {
     lst->push_back(obj);
     fprintf(logs, "[INF] Figure created!\n");
-
   } else {
     delete obj;
     fprintf(logs, "[WRN] Can`t create a figure!\n");
   }
 }
 
-void remCom(List *lst, char *comm) { lst->remove_all_by_condition(comm); }
-void printCom(List *lst) { lst->print(stdout); }
+void remCom(std::list<Fig *> *lst, char *comm) {
+  for (std::list<Fig *>::iterator it = lst->begin(); it != lst->end();) {
+    Fig *ptr = *it;
+    if (checkCondition(ptr, comm)) {
+      it = lst->erase(it);
+    } else {
+      it++;
+    }
+  }
+}
+
+void printCom(std::list<Fig *> *lst, FILE *ofile) {
+  if (lst->empty())
+    return;
+  fprintf(ofile, "!--------PRINT--------!\n");
+
+  for (std::list<Fig *>::iterator it = lst->begin(); it != lst->end(); it++) {
+    Fig *ptr = *it;
+    ptr->print(ofile);
+  }
+}
 
 int main() {
   FILE *newfile = fopen("input", "r");
   logs = fopen("output", "w");
 
-  List lst;
+  std::list<Fig *> lst;
 
   char param[150];
   char commline[150];
@@ -51,7 +110,7 @@ int main() {
       sscanf(commline, "%*s %150[^\n\r]", param);
       remCom(&lst, param);
     } else if (string(param) == "PRINT") {
-      printCom(&lst);
+      printCom(&lst, stdout);
     } else {
       fprintf(logs, "[WRN] %s is not a command!\n", param);
     }
@@ -59,7 +118,7 @@ int main() {
 
   fprintf(logs, "[INF] Programm finished!\n");
 
-  lst.freeList();
+  lst.clear();
   fclose(newfile);
   fclose(logs);
 
