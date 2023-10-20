@@ -7,6 +7,14 @@
 
 FILE *logs;
 
+void deleteList(std::list<Fig *> *lst) {
+  for (std::list<Fig *>::iterator it = lst->begin(); it != lst->end();) {
+    Fig *ptr = *it;
+    delete ptr;
+    it = lst->erase(it);
+  }
+}
+
 bool checkCondition(Fig *fig, char *comm) {
   if (fig == nullptr)
     return false;
@@ -26,7 +34,6 @@ bool checkCondition(Fig *fig, char *comm) {
          if (oper == "=") {
            return f->name == inp;
          } else
-
            return false;
        }},
       {"capacity", [](Fig *f, string oper, string inp) {
@@ -61,7 +68,7 @@ void addCom(std::list<Fig *> *lst, char *comm, char *param) {
     fprintf(logs, "[WRN] %s is not a figure type!\n", comm);
   }
 
-  if ((obj != nullptr) && (obj->setFig(param) == true)) {
+  if ((obj != nullptr) && (obj->setFig(param))) {
     lst->push_back(obj);
     fprintf(logs, "[INF] Figure created!\n");
   } else {
@@ -74,6 +81,7 @@ void remCom(std::list<Fig *> *lst, char *comm) {
   for (std::list<Fig *>::iterator it = lst->begin(); it != lst->end();) {
     Fig *ptr = *it;
     if (checkCondition(ptr, comm)) {
+      delete ptr;
       it = lst->erase(it);
     } else {
       it++;
@@ -117,8 +125,7 @@ int main() {
   }
 
   fprintf(logs, "[INF] Programm finished!\n");
-
-  lst.clear();
+  deleteList(&lst);
   fclose(newfile);
   fclose(logs);
 
