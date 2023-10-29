@@ -1,9 +1,10 @@
-#include <cstdio>
+#include <functional>
+#include <list>
+#include <map>
+#include <stdio.h>
 #include <string>
 
-#include <list>
-
-#include "figure.cpp"
+#include "figure.h"
 
 FILE *logs;
 

@@ -1,5 +1,5 @@
-#include <cstdio>
 #include <regex>
+#include <stdio.h>
 #include <string>
 
 const float Pi = 3.14;
