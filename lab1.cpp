@@ -1,4 +1,3 @@
-#include <functional>
 #include <list>
 #include <map>
 #include <stdio.h>
@@ -7,6 +6,8 @@
 #include "figure.h"
 
 FILE *logs;
+
+using namespace std;
 
 void deleteList(std::list<Fig *> *lst) {
   for (std::list<Fig *>::iterator it = lst->begin(); it != lst->end();) {
