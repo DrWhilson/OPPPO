@@ -1,9 +1,11 @@
-#include <list>
-#include <map>
-#include <stdio.h>
-#include <string>
+#include "lab1.h"
 
-#include "figure.h"
+// #include <list>
+// #include <map>
+// #include <stdio.h>
+// #include <string>
+
+// #include "figure.h"
 
 FILE *logs;
 
