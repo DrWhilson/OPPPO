@@ -19,9 +19,9 @@ void deleteList(std::list<Fig *> *lst) {
   }
 }
 
-bool isKeyContain(std::vector<std::string> keys, std::string checkstr) {
+bool isKeyContain(std::vector<std::string> keys, std::string check_key) {
   for (int i = 0; i < keys.size(); i++) {
-    if (keys[i] == checkstr)
+    if (keys[i] == check_key)
       return true;
   }
   return false;
@@ -31,13 +31,13 @@ bool checkCondition(Fig *fig, char *comm) {
   if (fig == nullptr)
     return false;
 
-  char par[50];
+  char del_param[50];
   char oper[50];
-  char inp[50];
+  char input_param[50];
   char check[50];
   if (sscanf(comm, "%*s %*s %*s%150[^\n\r]", check) == 1)
     return false;
-  if (sscanf(comm, "%s %s %s", par, oper, inp) != 3)
+  if (sscanf(comm, "%s %s %s", del_param, oper, input_param) != 3)
     return false;
 
   vector<string> keys = {"name", "capacity"};
@@ -63,7 +63,8 @@ bool checkCondition(Fig *fig, char *comm) {
            return false;
        }}};
 
-  if (isKeyContain(keys, par) && pars[par](fig, oper, inp)) {
+  if (isKeyContain(keys, del_param) &&
+      pars[del_param](fig, oper, input_param)) {
     return true;
   }
   return false;
