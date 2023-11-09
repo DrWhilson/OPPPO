@@ -1,11 +1,13 @@
+#include "figure.h"
 #include <list>
 #include <map>
 #include <stdio.h>
 #include <string>
-
-#include "figure.h"
+#include <vector>
 
 void deleteList(std::list<Fig *> *lst);
+
+bool isKeyContain(std::vector<std::string> keys, std::string checkstr);
 
 bool checkCondition(Fig *fig, char *comm);
 
