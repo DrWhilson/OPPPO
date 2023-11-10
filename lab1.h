@@ -1,4 +1,5 @@
 #include "figure.h"
+#include <functional>
 #include <list>
 #include <map>
 #include <stdio.h>

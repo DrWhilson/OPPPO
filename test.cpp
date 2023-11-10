@@ -2,6 +2,8 @@
 #include <CppUTest/TestHarness.h>
 #include <CppUTest/UtestMacros.h>
 
+#include "lab1.h"
+
 TEST_GROUP(FirstTestGroup){};
 
 TEST(FirstTestGroup, FirstTest) { FAIL("Fail!"); }
