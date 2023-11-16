@@ -19,6 +19,7 @@ add_executable(lab1 ${SOURCE_EXE})
 target_link_libraries(lab1 figure)
 
 #CppUTest
+# find_package(CppUTest REQUIRED)
 include(FetchContent)
 FetchContent_Declare(
     CppUTest
@@ -31,5 +32,5 @@ FetchContent_MakeAvailable(CppUTest)
 
 add_executable(example_test main_test.cpp)
 
-target_link_libraries(example_test PRIVATE CppUTest::CppUTest CppUTest::CppUTestExt)
+target_link_libraries(example_test PRIVATE CppUTest CppUTestExt)
 add_test(example_test example_test)
