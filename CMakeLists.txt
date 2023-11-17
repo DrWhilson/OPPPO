@@ -19,18 +19,24 @@ add_executable(lab1 ${SOURCE_EXE})
 target_link_libraries(lab1 figure)
 
 #CppUTest
-# find_package(CppUTest REQUIRED)
-include(FetchContent)
-FetchContent_Declare(
-    CppUTest
-    GIT_REPOSITORY https://github.com/cpputest/cpputest.git
-    GIT_TAG        master
-)
+# include(FetchContent)
+# FetchContent_Declare(
+#     CppUTest
+#     GIT_REPOSITORY https://github.com/cpputest/cpputest.git
+#     GIT_TAG        master
+# )
+#
+# set(TESTS OFF CACHE BOOL "Switch off CppUTest Test build")
+# FetchContent_MakeAvailable(CppUTest)
+#
+# add_executable(example_test main_test.cpp)
+#
+# target_link_libraries(example_test PRIVATE CppUTest::CppUTest CppUTest::CppUTestExt)
+# add_test(example_test example_test)
 
-set(TESTS OFF CACHE BOOL "Switch off CppUTest Test build")
-FetchContent_MakeAvailable(CppUTest)
+#GoogleTest
+find_package(GTest REQUIRED)
+include_directories(${GTEST_INCLUDE_DIRS})
 
-add_executable(example_test main_test.cpp)
-
-target_link_libraries(example_test PRIVATE CppUTest CppUTestExt)
-add_test(example_test example_test)
+add_executable(runTests main_test.cpp)
+target_link_libraries(runTests ${GTEST_LIBRARIES} pthread)
