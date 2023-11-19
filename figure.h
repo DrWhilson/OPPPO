@@ -40,7 +40,7 @@ public:
   int calcCap() const override;
   bool setFig(char *comm) override;
 
-  Sphere() {}
+  Sphere() : Fig() {}
   ~Sphere() = default;
 };
 
@@ -52,7 +52,7 @@ public:
   int calcCap() const override;
   bool setFig(char *comm) override;
 
-  Parallelepiped() {}
+  Parallelepiped() : Fig() {}
   ~Parallelepiped() = default;
 };
 
@@ -65,7 +65,7 @@ public:
   int calcCap() const override;
   bool setFig(char *comm) override;
 
-  Cylinder() {}
+  Cylinder() : Fig() {}
   ~Cylinder() = default;
 };
 
