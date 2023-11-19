@@ -1,7 +1,4 @@
 #ignore trash files
-/input
-/output
-/lab
-/test
-/*.o
+/src/input
+/src/output
 /build

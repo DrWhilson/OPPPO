@@ -1,8 +1,9 @@
-#include "figure.h"
-#include "lab1.h"
+#include "../src/lab1.h"
 #include <gtest/gtest.h>
 
-TEST(checkCondTest, somevars) { /* Fig *obj = new Cylinder(); */
+TEST(checkCondTest, somevars) {
+  // Cylinder cyl;
+  // cyl.print(stdout);
 }
 
 int main(int argc, char **argv) {

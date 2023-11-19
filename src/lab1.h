@@ -1,7 +1,7 @@
 #ifndef LAB_H
 #define LAB_H
 
-#include "figure.h"
+#include "./figure.h"
 #include <functional>
 #include <list>
 #include <map>

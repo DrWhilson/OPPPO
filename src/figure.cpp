@@ -1,7 +1,4 @@
-#ifndef FIGURE_CPP
-#define FIGURE_CPP
-
-#include "figure.h"
+#include "./figure.h"
 
 using namespace std;
 
@@ -83,5 +80,3 @@ bool Cylinder::setFig(char *comm) {
     return false;
   }
 }
-
-#endif // FIGURE_CPP

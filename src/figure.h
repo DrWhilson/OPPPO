@@ -15,9 +15,6 @@ bool isPositive(float num);
 class Point3D {
 public:
   int x, y, z;
-
-  Point3D() {}
-  ~Point3D() = default;
 };
 
 class Fig {
@@ -28,7 +25,6 @@ public:
   virtual int calcCap() const = 0;
   virtual bool setFig(char *comm) = 0;
 
-  Fig() {}
   virtual ~Fig() = default;
 };
 
@@ -39,9 +35,6 @@ public:
   void print(FILE *ofile) const override;
   int calcCap() const override;
   bool setFig(char *comm) override;
-
-  Sphere() : Fig() {}
-  ~Sphere() = default;
 };
 
 class Parallelepiped : public Fig {
@@ -51,9 +44,6 @@ public:
   void print(FILE *ofile) const override;
   int calcCap() const override;
   bool setFig(char *comm) override;
-
-  Parallelepiped() : Fig() {}
-  ~Parallelepiped() = default;
 };
 
 class Cylinder : public Fig {
@@ -64,9 +54,6 @@ public:
   void print(FILE *ofile) const override;
   int calcCap() const override;
   bool setFig(char *comm) override;
-
-  Cylinder() : Fig() {}
-  ~Cylinder() = default;
 };
 
 #endif // FIGURE_H
