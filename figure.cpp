@@ -1,3 +1,6 @@
+#ifndef FIGURE_CPP
+#define FIGURE_CPP
+
 #include "figure.h"
 
 using namespace std;
@@ -11,9 +14,7 @@ bool isContainNum(char *str) {
 }
 
 bool checkName(char *str) { return !isContainNum(str) && isupper(str[0]); }
-
 bool isPositive(int num) { return num >= 0; }
-
 bool isPositive(float num) { return num >= 0; }
 
 void Sphere::print(FILE *ofile) const {
@@ -21,7 +22,24 @@ void Sphere::print(FILE *ofile) const {
                Density, Radius);
 }
 
+void Parallelepiped::print(FILE *ofile) const {
+  std::fprintf(ofile,
+               "!--Parallelepiped--!\nName %s\nDensity %f\nRibs %d %d %d\n",
+               name, Density, edgeA, edgeB, edgeC);
+}
+
+void Cylinder::print(FILE *ofile) const {
+  std::fprintf(ofile,
+               "!--Cylinder--!\nName %s\nDensity %f\nCoordinates %d %d "
+               "%d\nRadius %f\nHeight %f\n",
+               name, Density, center.x, center.y, center.z, Radius, Hight);
+}
+
 int Sphere::calcCap() const { return ((4.0 / 3.0) * Pi * Radius * Radius); }
+
+int Parallelepiped::calcCap() const { return edgeA * edgeB * edgeC; }
+
+int Cylinder::calcCap() const { return Pi * Radius * Radius * Hight; }
 
 bool Sphere::setFig(char *comm) {
   char check[50];
@@ -35,14 +53,6 @@ bool Sphere::setFig(char *comm) {
     return false;
   }
 }
-
-void Parallelepiped::print(FILE *ofile) const {
-  std::fprintf(ofile,
-               "!--Parallelepiped--!\nName %s\nDensity %f\nRibs %d %d %d\n",
-               name, Density, edgeA, edgeB, edgeC);
-}
-
-int Parallelepiped::calcCap() const { return edgeA * edgeB * edgeC; }
 
 bool Parallelepiped::setFig(char *comm) {
   char check[50];
@@ -59,15 +69,6 @@ bool Parallelepiped::setFig(char *comm) {
   }
 }
 
-void Cylinder::print(FILE *ofile) const {
-  std::fprintf(ofile,
-               "!--Cylinder--!\nName %s\nDensity %f\nCoordinates %d %d "
-               "%d\nRadius %f\nHeight %f\n",
-               name, Density, center.x, center.y, center.z, Radius, Hight);
-}
-
-int Cylinder::calcCap() const { return Pi * Radius * Radius * Hight; }
-
 bool Cylinder::setFig(char *comm) {
   char check[50];
   if (sscanf(comm, "%*s %*s %*s %*s %*s %*s %*s%150[^\n\r]", check) == 1)
@@ -82,3 +83,5 @@ bool Cylinder::setFig(char *comm) {
     return false;
   }
 }
+
+#endif // FIGURE_CPP

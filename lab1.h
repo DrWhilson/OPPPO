@@ -1,3 +1,6 @@
+#ifndef LAB_H
+#define LAB_H
+
 #include "figure.h"
 #include <functional>
 #include <list>
@@ -17,3 +20,5 @@ void addCom(std::list<Fig *> *lst, char *comm, char *param);
 void remCom(std::list<Fig *> *lst, char *comm);
 
 void printCom(std::list<Fig *> *lst, FILE *ofile);
+
+#endif // LAB_H
