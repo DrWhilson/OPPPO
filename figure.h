@@ -8,11 +8,8 @@
 const float Pi = 3.14;
 
 bool isContainNum(char *str);
-
 bool checkName(char *str);
-
 bool isPositive(int num);
-
 bool isPositive(float num);
 
 class Point3D {
@@ -20,6 +17,7 @@ public:
   int x, y, z;
 
   Point3D() {}
+  ~Point3D() = default;
 };
 
 class Fig {
@@ -31,7 +29,7 @@ public:
   virtual bool setFig(char *comm) = 0;
 
   Fig() {}
-  virtual ~Fig() {}
+  virtual ~Fig() = default;
 };
 
 class Sphere : public Fig {
@@ -43,7 +41,7 @@ public:
   bool setFig(char *comm) override;
 
   Sphere() {}
-  ~Sphere() {}
+  ~Sphere() = default;
 };
 
 class Parallelepiped : public Fig {
@@ -55,7 +53,7 @@ public:
   bool setFig(char *comm) override;
 
   Parallelepiped() {}
-  ~Parallelepiped() {}
+  ~Parallelepiped() = default;
 };
 
 class Cylinder : public Fig {
@@ -68,7 +66,7 @@ public:
   bool setFig(char *comm) override;
 
   Cylinder() {}
-  ~Cylinder() {}
+  ~Cylinder() = default;
 };
 
 #endif // FIGURE_H

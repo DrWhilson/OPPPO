@@ -1,3 +1,6 @@
+#ifndef LAB_CPP
+#define LAB_CPP
+
 #include "lab1.h"
 
 FILE *logs;
@@ -139,3 +142,5 @@ int main() {
 
   return 0;
 }
+
+#endif // LAB_CPP
