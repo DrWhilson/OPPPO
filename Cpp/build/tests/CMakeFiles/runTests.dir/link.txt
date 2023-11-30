@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/runTests.dir/main_test.cpp.o -o runTests   -L/home/user/SFU/OPPPO/lab1  -L/home/user/SFU/OPPPO/runTests  -Wl,-rpath,/home/user/SFU/OPPPO/lab1:/home/user/SFU/OPPPO/runTests /usr/lib/x86_64-linux-gnu/libgtest.a -lpthread ../src/liblibs.a 

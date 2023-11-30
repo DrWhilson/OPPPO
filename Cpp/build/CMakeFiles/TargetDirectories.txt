@@ -1,0 +1,12 @@
+/home/user/SFU/OPPPO/build/CMakeFiles/test.dir
+/home/user/SFU/OPPPO/build/CMakeFiles/edit_cache.dir
+/home/user/SFU/OPPPO/build/CMakeFiles/rebuild_cache.dir
+/home/user/SFU/OPPPO/build/src/CMakeFiles/libs.dir
+/home/user/SFU/OPPPO/build/src/CMakeFiles/lab1.dir
+/home/user/SFU/OPPPO/build/src/CMakeFiles/test.dir
+/home/user/SFU/OPPPO/build/src/CMakeFiles/edit_cache.dir
+/home/user/SFU/OPPPO/build/src/CMakeFiles/rebuild_cache.dir
+/home/user/SFU/OPPPO/build/tests/CMakeFiles/runTests.dir
+/home/user/SFU/OPPPO/build/tests/CMakeFiles/test.dir
+/home/user/SFU/OPPPO/build/tests/CMakeFiles/edit_cache.dir
+/home/user/SFU/OPPPO/build/tests/CMakeFiles/rebuild_cache.dir

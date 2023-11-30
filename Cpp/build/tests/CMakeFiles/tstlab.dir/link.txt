@@ -1,0 +1,2 @@
+/usr/bin/ar qc libtstlab.a CMakeFiles/tstlab.dir/__/src/lab1.cpp.o
+/usr/bin/ranlib libtstlab.a

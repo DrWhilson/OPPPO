@@ -1,0 +1,6 @@
+ADD Sphere Name 1.0 4
+ADD Sphere Nn 2.0 5
+ADD Sphere name 5.2 6
+PRINT
+REM names = Name
+PRINT
