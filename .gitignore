@@ -1,4 +1,6 @@
 #ignore trash files
-/src/input
-/src/output
-/build
+./Cpp/src/input
+./Cpp/src/output
+./Cpp/build
+./Fsharp/Lab/obj
+./Fsharp/Lab/bin

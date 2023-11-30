@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "VknSaHJBMcmWotu5DuuANKv3jI+5qVa50TEoqRvdlBS58DPoPb1PE5wKt6/46s/jCHxjWIBC4xfedSWIa0LxZg==",
+  "dgSpecHash": "NtSBb28VEWD3f1TjRexQ7TmS2AYKJHIsOa6dfCJhkz/hbvih7u4LnDZjZULDRCFBYcG3ejsJnvkONdlyo06TWA==",
   "success": true,
   "projectFilePath": "/home/user/SFU/OPPPO/Fsharp/Lab/Lab.fsproj",
   "expectedPackageFiles": [
-    "/home/user/.nuget/packages/fsharp.core/7.0.0/fsharp.core.7.0.0.nupkg.sha512"
+    "/home/user/.nuget/packages/fsharp.core/7.0.0/fsharp.core.7.0.0.nupkg.sha512",
+    "/home/user/.nuget/packages/fsharpx.collections.experimental/3.1.0/fsharpx.collections.experimental.3.1.0.nupkg.sha512"
   ],
   "logs": []
 }

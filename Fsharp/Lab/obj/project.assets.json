@@ -55,6 +55,22 @@
             "locale": "zh-Hant"
           }
         }
+      },
+      "FSharpx.Collections.Experimental/3.1.0": {
+        "type": "package",
+        "dependencies": {
+          "FSharp.Core": "4.3.4"
+        },
+        "compile": {
+          "lib/netstandard2.0/FSharpx.Collections.Experimental.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/FSharpx.Collections.Experimental.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
       }
     }
   },
@@ -99,11 +115,26 @@
         "lib/netstandard2.1/zh-Hans/FSharp.Core.resources.dll",
         "lib/netstandard2.1/zh-Hant/FSharp.Core.resources.dll"
       ]
+    },
+    "FSharpx.Collections.Experimental/3.1.0": {
+      "sha512": "jEf9GSfrvgH5zihwZ48y4aXi4uI6Gg2ASM9enjN9fGzsre+IySnpSiE5AxL5oQefpoN8iPZuoWTal/SKcgQ5XQ==",
+      "type": "package",
+      "path": "fsharpx.collections.experimental/3.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "fsharpx.collections.experimental.3.1.0.nupkg.sha512",
+        "fsharpx.collections.experimental.nuspec",
+        "lib/netstandard2.0/FSharpx.Collections.Experimental.dll",
+        "lib/netstandard2.0/FSharpx.Collections.Experimental.pdb",
+        "lib/netstandard2.0/FSharpx.Collections.Experimental.xml"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
-      "FSharp.Core >= 7.0.0"
+      "FSharp.Core >= 7.0.0",
+      "FSharpx.Collections.Experimental >= 3.1.0"
     ]
   },
   "packageFolders": {
@@ -144,6 +175,10 @@
             "target": "Package",
             "version": "[7.0.0, )",
             "generatePathProperty": true
+          },
+          "FSharpx.Collections.Experimental": {
+            "target": "Package",
+            "version": "[3.1.0, )"
           }
         },
         "imports": [
