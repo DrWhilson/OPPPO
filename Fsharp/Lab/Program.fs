@@ -1,45 +1,72 @@
 ﻿open System
 open System.IO
 open System.Collections.Generic
-open FSharpx.Collections.Experimental
+// open FSharpx.Collections.Experimental
 
 type Point3D =
-    val X: int
-    val Y: int
-    val Z: int
+    struct
+        val x: int
+        val y: int
+        val z: int
 
-type Figure() =
-    let mutable Name = ""
-    let mutable Density = 0.0
+        new(_x: int, _y: int, _z: int) = { x = _x; y = _y; z = _z }
 
-type Sphere() =
-    inherit Figure()
+        member this.PrintPoint(p: Point3D) =
+            printfn "X: %d \nY: %d \nZ:%d" p.x p.y p.z
+    end
 
-    let mutable Radius = 0
+type Figure(_Name, _Density) =
+    let mutable Name = _Name
+    let mutable Density = _Density
 
-type Parall() =
-    inherit Figure()
+    abstract member PrintFig: unit
+    default u.PrintFig = printfn "Name: %s\nDensity: %f" Name Density
 
-    let mutable edgeA = 0
-    let mutable edgeB = 0
-    let mutable edgeC = 0
+type Sphere(_Name, _Density, _Radius) =
+    inherit Figure(_Name, _Density)
 
-type Cyll() =
-    inherit Figure()
+    let mutable Radius = _Radius
 
-    let mutable Heigh = 0
-    let mutable Radius = 0
+    override u.PrintFig =
+        base.PrintFig
+        printfn "Radius: %d" Radius
 
-let readLinesFromFile (filePath: string) =
-    let lines = ref []
-    use reader = new StreamReader(filePath)
+type Parall(_Name, _Density, _edgeA, _edgeB, _edgeC) =
+    inherit Figure(_Name, _Density)
 
-    while not reader.EndOfStream do
-        lines := reader.ReadLine() :: !lines
+    let mutable edgeA = _edgeA
+    let mutable edgeB = _edgeB
+    let mutable edgeC = _edgeC
 
-    List.rev !lines
+    override u.PrintFig =
+        base.PrintFig
+        printfn "edge: %d %d %d" edgeA edgeB edgeC
 
-let filePath = "./input"
-let lines = readLinesFromFile filePath
-printfn "Содержимое файла %s:" filePath
-lines |> List.iter (fun line -> printfn "%s" line)
+type Cyll(_Name, _Density, _X, _Y, _Z, _Heigh, _Radius) =
+    inherit Figure(_Name, _Density)
+
+    let mutable Center = Point3D(_X, _Y, _Z)
+    let mutable Heigh = _Heigh
+    let mutable Radius = _Radius
+
+    override u.PrintFig =
+        base.PrintFig
+        printfn "Center: %d %d %d \nHeigh: %d \nRadius: %d" Center.x Center.y Center.z Heigh Radius
+
+// let readLinesFromFile (filePath: string) =
+//     let lines = ref []
+//     use reader = new StreamReader(filePath)
+//
+//     while not reader.EndOfStream do
+//         lines := reader.ReadLine() :: !lines
+//
+//     List.rev !lines
+//
+// let filePath = "./input"
+// let lines = readLinesFromFile filePath
+// printfn "Содержимое файла %s:" filePath
+// lines |> List.iter (fun line -> printfn "%s" line)
+
+let obj = Sphere("Name", 4.0, 5)
+
+obj.PrintFig

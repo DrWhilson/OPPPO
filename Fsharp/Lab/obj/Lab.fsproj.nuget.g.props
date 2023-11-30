@@ -14,5 +14,6 @@
   </ItemGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <PkgFSharp_Core Condition=" '$(PkgFSharp_Core)' == '' ">/home/user/.nuget/packages/fsharp.core/7.0.0</PkgFSharp_Core>
+    <PkgFSharpx_Collections_Experimental Condition=" '$(PkgFSharpx_Collections_Experimental)' == '' ">/home/user/.nuget/packages/fsharpx.collections.experimental/3.1.0</PkgFSharpx_Collections_Experimental>
   </PropertyGroup>
 </Project>
