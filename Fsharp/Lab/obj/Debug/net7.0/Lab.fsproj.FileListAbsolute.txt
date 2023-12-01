@@ -28,3 +28,4 @@
 /home/user/SFU/OPPPO/Fsharp/Lab/obj/Debug/net7.0/Lab.genruntimeconfig.cache
 /home/user/SFU/OPPPO/Fsharp/Lab/obj/Debug/net7.0/ref/Lab.dll
 /home/user/SFU/OPPPO/Fsharp/Lab/bin/Debug/net7.0/FSharpx.Collections.Experimental.dll
+/home/user/SFU/OPPPO/Fsharp/Lab/bin/Debug/net7.0/FSharpx.Collections.dll

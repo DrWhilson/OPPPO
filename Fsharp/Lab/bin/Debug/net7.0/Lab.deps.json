@@ -9,6 +9,7 @@
       "Lab/1.0.0": {
         "dependencies": {
           "FSharp.Core": "7.0.0",
+          "FSharpx.Collections": "3.1.0",
           "FSharpx.Collections.Experimental": "3.1.0"
         },
         "runtime": {
@@ -64,6 +65,17 @@
           }
         }
       },
+      "FSharpx.Collections/3.1.0": {
+        "dependencies": {
+          "FSharp.Core": "7.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/FSharpx.Collections.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "3.1.0.0"
+          }
+        }
+      },
       "FSharpx.Collections.Experimental/3.1.0": {
         "dependencies": {
           "FSharp.Core": "7.0.0"
@@ -89,6 +101,13 @@
       "sha512": "sha512-EL9MW9AOjGTmeAhccidxa2ZZQDLmhslp9PVkKGCnEi1L1CnsCYbcz7MjyWKj3KVXOXaKLkKJsTDq39SwqOrtlw==",
       "path": "fsharp.core/7.0.0",
       "hashPath": "fsharp.core.7.0.0.nupkg.sha512"
+    },
+    "FSharpx.Collections/3.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-VKK+/6zD4GoAYam1MLNd5NQTL+sG9i69MkCy7f67PUhGTuoXFVNgym1mcxKvD0Kt3Cbua3aoKlNP3G5WwT9mYw==",
+      "path": "fsharpx.collections/3.1.0",
+      "hashPath": "fsharpx.collections.3.1.0.nupkg.sha512"
     },
     "FSharpx.Collections.Experimental/3.1.0": {
       "type": "package",

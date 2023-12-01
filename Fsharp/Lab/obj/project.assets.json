@@ -56,6 +56,22 @@
           }
         }
       },
+      "FSharpx.Collections/3.1.0": {
+        "type": "package",
+        "dependencies": {
+          "FSharp.Core": "4.3.4"
+        },
+        "compile": {
+          "lib/netstandard2.0/FSharpx.Collections.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/FSharpx.Collections.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
       "FSharpx.Collections.Experimental/3.1.0": {
         "type": "package",
         "dependencies": {
@@ -116,6 +132,48 @@
         "lib/netstandard2.1/zh-Hant/FSharp.Core.resources.dll"
       ]
     },
+    "FSharpx.Collections/3.1.0": {
+      "sha512": "VKK+/6zD4GoAYam1MLNd5NQTL+sG9i69MkCy7f67PUhGTuoXFVNgym1mcxKvD0Kt3Cbua3aoKlNP3G5WwT9mYw==",
+      "type": "package",
+      "path": "fsharpx.collections/3.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "fable/AssemblyInfo.fs",
+        "fable/ByteString.fs",
+        "fable/CircularBuffer.fs",
+        "fable/CircularBuffer.fsi",
+        "fable/Collections.fs",
+        "fable/DList.fs",
+        "fable/DList.fsi",
+        "fable/Deque.fs",
+        "fable/Deque.fsi",
+        "fable/Exceptions.fs",
+        "fable/FSharpx.Collections.fsproj",
+        "fable/Infrastructure.fs",
+        "fable/Interfaces.fs",
+        "fable/LazyList.fs",
+        "fable/LazyList.fsi",
+        "fable/Literals.fs",
+        "fable/NonEmptyList.fs",
+        "fable/PersistentHashMap.fs",
+        "fable/PersistentVector.fs",
+        "fable/PersistentVector.fsi",
+        "fable/PriorityQueue.fs",
+        "fable/Queue.fs",
+        "fable/Queue.fsi",
+        "fable/RandomAccessList.fs",
+        "fable/RandomAccessList.fsi",
+        "fable/ResizeArray.fs",
+        "fable/ResizeArray.fsi",
+        "fable/TaggedCollections.fs",
+        "fsharpx.collections.3.1.0.nupkg.sha512",
+        "fsharpx.collections.nuspec",
+        "lib/netstandard2.0/FSharpx.Collections.dll",
+        "lib/netstandard2.0/FSharpx.Collections.pdb",
+        "lib/netstandard2.0/FSharpx.Collections.xml"
+      ]
+    },
     "FSharpx.Collections.Experimental/3.1.0": {
       "sha512": "jEf9GSfrvgH5zihwZ48y4aXi4uI6Gg2ASM9enjN9fGzsre+IySnpSiE5AxL5oQefpoN8iPZuoWTal/SKcgQ5XQ==",
       "type": "package",
@@ -134,6 +192,7 @@
   "projectFileDependencyGroups": {
     "net7.0": [
       "FSharp.Core >= 7.0.0",
+      "FSharpx.Collections >= 3.1.0",
       "FSharpx.Collections.Experimental >= 3.1.0"
     ]
   },
@@ -174,6 +233,11 @@
             "include": "Runtime, Compile, Build, Native, Analyzers, BuildTransitive",
             "target": "Package",
             "version": "[7.0.0, )",
+            "generatePathProperty": true
+          },
+          "FSharpx.Collections": {
+            "target": "Package",
+            "version": "[3.1.0, )",
             "generatePathProperty": true
           },
           "FSharpx.Collections.Experimental": {
