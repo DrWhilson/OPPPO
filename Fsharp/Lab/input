@@ -1,6 +1,10 @@
-ADD Sphere Name 4.0 5
+ADD Sphere Namee 4.0 5
+ADD Sphere name 4.0 5
+ADD Sphere Nam1 4.0 5
+ADD Sphere Name 4.0 6 6
 ADD Cyll Name 4.0 0 0 0 4 5
-ADD Parall Name 4.0 5 5 5
+ADD Parall Name 4.0 5 5 500
 PRINT
-REM
+REM name = Namee
+REM Cap > 1000
 PRINT
