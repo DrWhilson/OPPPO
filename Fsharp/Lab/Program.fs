@@ -86,7 +86,7 @@ type Cyll(_Name, _Density, _X, _Y, _Z, _Heigh, _Radius) =
 let IsContainDigit (str: string) : bool =
     str |> Seq.forall (fun c -> not (Char.IsDigit(c)))
 
-let checker (fig: Figure, comm: array<string>) : bool =
+let checker (fig: Figure) (comm: array<string>) : bool =
     if comm.Length = 3 then
         if comm[0] = "name" && comm[1] = "=" then
             fig.getName = comm[2]
@@ -147,19 +147,15 @@ let commAdd (comm: array<string>, lst: LinkedList<Figure>) =
         printfn ("Error in fig Name")
         lst
 
-let removeElements (comm: array<string>, list: LinkedList<Figure>) =
-    let mutable currentNode = list.First
+let deleteSome (lst: LinkedList<'a>) (predicate: 'a -> bool) =
+    lst
+    |> Seq.filter predicate
+    |> Seq.toList
+    |> List.iter (fun x -> lst.Remove(x) |> ignore)
+    |> ignore
 
-    while currentNode <> null do
-        let nextNode = currentNode.Next
-
-        if checker (currentNode.Value, comm) then
-            list.Remove(currentNode)
-
-        currentNode <- nextNode
-
-
-let commRem (comm: array<string>, lst: LinkedList<Figure>) = removeElements (comm, lst)
+let commRem (comm: array<string>, lst: LinkedList<Figure>) =
+    deleteSome lst (fun x -> checker x comm)
 
 let readLinesFromFile (filePath: string) =
     let lines = ref []
