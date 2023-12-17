@@ -1,2 +1,0 @@
-/usr/bin/ar qc libfigure.a CMakeFiles/figure.dir/figure.cpp.o
-/usr/bin/ranlib libfigure.a

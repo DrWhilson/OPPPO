@@ -1,1 +1,0 @@
-/usr/bin/c++  --debug CMakeFiles/lab1.dir/lab1.cpp.o -o lab1   -L/home/user/SFU/OPPPO/lab1  -L/home/user/SFU/OPPPO/runTests  -Wl,-rpath,/home/user/SFU/OPPPO/lab1:/home/user/SFU/OPPPO/runTests liblibs.a 
